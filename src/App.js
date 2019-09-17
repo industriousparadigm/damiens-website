@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/** @jsx jsx */
+import { jsx, ThemeProvider, Styled } from 'theme-ui'
+import theme from './theme'
+
+// does not currently work with MDX v1
+// import { importMDX } from 'mdx.macro'
+// const Demo = importMDX.sync('./demo.mdx')
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ThemeProvider theme={theme}>
+      <div
+        sx={{
+          height: '100%',
+        }}
+      >
+        <Styled.h1>damiennaylor.com</Styled.h1>
+      </div>
+    </ThemeProvider>
+  )
 }
 
-export default App;
+export default App
